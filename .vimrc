@@ -1,6 +1,5 @@
 syntax on
-filetype on
-filetype indent on
+filetype plugin indent on
 
 " This sends your yanks to the system clipboard allowing for easier copying and
 " pasting
@@ -8,9 +7,6 @@ set clipboard=unnamed
 
 " This allows you to mouse select text even if you have the screen split
 "set mouse=a
-
-" This causes vim to load pyflakes
-filetype plugin indent on
 
 " This causes pyflakes not to load if the file ends in _auto.py. I use this
 " ending for really long python files, which slow vim down if pyflakes is
@@ -78,3 +74,29 @@ autocmd FileType c    noremap <silent> <buffer> <M-c> :call CommentLineToEnd('//
 autocmd FileType c    noremap <silent> <buffer> <M-C> :call CommentLinePincer('/* ', ' */')<CR>+
 autocmd FileType make noremap <silent> <buffer> <M-c> :call CommentLineToEnd('# ')<CR>+
 autocmd FileType html noremap <silent> <buffer> <M-c> :call CommentLinePincer('<!-- ', ' -->')<CR>
+
+" stuff added for Latex-Suite
+
+" this stuff some how fucks up my python/pyflakes highlighting if it is in my .vimrc
+
+" stuff added for Latex-Suite
+
+" " IMPORTANT: grep will sometimes skip displaying the file name if you
+" " search in a singe file. This will confuse Latex-Suite. Set your grep
+" " program to always generate a file-name.
+set grepprg=grep\ -nH\ $*
+
+" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" The following changes the default filetype back to 'tex':
+let g:tex_flavor='latex'
+
+let g:Tex_IgnoredWarnings="Underfull\nOverfull\nspecifier changed to\nYou have requested\nMissing number, treated as zero.\nThere were undefined references\nCitation %.%# undefined\nLaTeX Font Warning"
+let g:Tex_IgnoreLevel=8
+let g:Tex_ViewRule_pdf='evince $*.pdf'
+let g:Tex_ViewRule_dvi='evince $*.pdf'
+let g:Tex_DefaultTargetFormat='pdf'
+let g:Tex_GotoError=0
+let g:Tex_CompileRule_pdf='pdflatex $*.tex && bibtex $*.aux && pdflatex $*.tex && pdflatex $*.tex'
+let g:Tex_CompileRule_dvi='latex $*.tex && bibtex $*.aux && latex $*.tex && latex $*.tex && dvipdf $*.dvi $.pdf'
+let g:tex_indent_items = 1

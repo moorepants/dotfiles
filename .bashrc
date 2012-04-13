@@ -106,6 +106,9 @@ export BIBINPUTS="/media/Data/Documents/School/UC Davis/Bicycle Mechanics/Papers
 # add path to mbdyn
 export PATH=$PATH:/usr/local/mbdyn/bin
 
+# access user install haskell libraries
+export PATH=$PATH:~/.cabal/bin
+
 # add path to my bin
 export PATH=$PATH:~/usr/bin
 
