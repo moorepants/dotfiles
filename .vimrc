@@ -1,3 +1,4 @@
+colorscheme ron
 syntax on
 filetype plugin indent on
 
@@ -16,7 +17,7 @@ autocmd BufReadPre *_auto.py :let b:did_pyflakes_plugin=1
 " This allows one to toggle pyflakes using the fork
 " https://github.com/georgexsh/pyflakes-vim
 let g:pyflakes_autostart = 0
-map <F11> :PyflakesToggle<cr>
+map <F9> :PyflakesToggle<cr>
 
 set autowrite " saves the file when you swith buffers or execute external commands, otherwise vim asks if you want to save
 set autoindent " will indent lines following indented lines
