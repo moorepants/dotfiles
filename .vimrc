@@ -19,6 +19,12 @@ autocmd BufReadPre *_auto.py :let b:did_pyflakes_plugin=1
 let g:pyflakes_autostart = 0
 map <F9> :PyflakesToggle<cr>
 
+" Sets the filetype for jinja files
+au BufNewFile,BufRead *.j2 set filetype=htmljinja
+
+" Sets the filetype for Autolev files
+au BufNewFile,BufRead *.al set filetype=
+
 set autowrite " saves the file when you swith buffers or execute external commands, otherwise vim asks if you want to save
 set autoindent " will indent lines following indented lines
 set bs=indent,eol,start
