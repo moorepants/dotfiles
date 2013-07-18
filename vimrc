@@ -1,3 +1,17 @@
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+" User installed vim plugins
+Bundle 'tpope/vim-fugitive'
+Bundle 'scrooloose/nerdtree'
+Bundle 'klen/python-mode'
+Bundle 'davidhalter/jedi-vim'
+
 colorscheme ron
 syntax on
 filetype plugin indent on
@@ -13,6 +27,9 @@ set clipboard=unnamed
 " ending for really long python files, which slow vim down if pyflakes is
 " running.
 autocmd BufReadPre *_auto.py :let b:did_pyflakes_plugin=1
+
+" NerdTree key mapping
+map <F3> :NERDTreeToggle<CR>
 
 " This allows one to toggle pyflakes using the fork
 " https://github.com/georgexsh/pyflakes-vim
@@ -31,6 +48,47 @@ set bs=indent,eol,start
 set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅ " adds some symbols for tabs, trailing whitespace, and non=breaking spaces
 "set exrc " allows you to set a custom local vimrc in working directories
 set textwidth=79 " sets wrapping default as 79 characters
+
+" Python-mode
+" Activate rope
+" Keys:
+" K             Show python docs
+" <Ctrl-Space>  Rope autocomplete
+" <Ctrl-c>g     Rope goto definition
+" <Ctrl-c>d     Rope show documentation
+" <Ctrl-c>f     Rope find occurrences
+" <Leader>b     Set, unset breakpoint (g:pymode_breakpoint enabled)
+" [[            Jump on previous class or function (normal, visual, operator modes)
+" ]]            Jump on next class or function (normal, visual, operator modes)
+" [M            Jump on previous class or method (normal, visual, operator modes)
+" ]M            Jump on next class or method (normal, visual, operator modes)
+let g:pymode_rope = 0
+"
+" Documentation
+let g:pymode_doc = 1
+let g:pymode_doc_key = 'K'
+"
+"Linting
+let g:pymode_lint = 1
+let g:pymode_lint_checker = "pyflakes,pep8"
+" Auto check on save
+let g:pymode_lint_write = 1
+"
+" Support virtualenv
+let g:pymode_virtualenv = 1
+"
+" Enable breakpoints plugin
+let g:pymode_breakpoint = 1
+let g:pymode_breakpoint_key = '<leader>b'
+"
+" syntax highlighting
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+let g:pymode_syntax_space_errors = g:pymode_syntax_all
+"
+" Don't autofold code
+let g:pymode_folding = 0
 
 " maps keys to commands
 map <F2> :w<CR>
@@ -96,14 +154,14 @@ set grepprg=grep\ -nH\ $*
 " OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
 " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
 " The following changes the default filetype back to 'tex':
-let g:tex_flavor='latex'
+"let g:tex_flavor='latex'
 
-let g:Tex_IgnoredWarnings="Underfull\nOverfull\nspecifier changed to\nYou have requested\nMissing number, treated as zero.\nThere were undefined references\nCitation %.%# undefined\nLaTeX Font Warning"
-let g:Tex_IgnoreLevel=8
-let g:Tex_ViewRule_pdf='evince $*.pdf'
-let g:Tex_ViewRule_dvi='evince $*.pdf'
-let g:Tex_DefaultTargetFormat='pdf'
-let g:Tex_GotoError=0
-let g:Tex_CompileRule_pdf='pdflatex $*.tex && bibtex $*.aux && pdflatex $*.tex && pdflatex $*.tex'
-let g:Tex_CompileRule_dvi='latex $*.tex && bibtex $*.aux && latex $*.tex && latex $*.tex && dvipdf $*.dvi $.pdf'
-let g:tex_indent_items = 1
+"let g:Tex_IgnoredWarnings="Underfull\nOverfull\nspecifier changed to\nYou have requested\nMissing number, treated as zero.\nThere were undefined references\nCitation %.%# undefined\nLaTeX Font Warning"
+"let g:Tex_IgnoreLevel=8
+"let g:Tex_ViewRule_pdf='evince $*.pdf'
+"let g:Tex_ViewRule_dvi='evince $*.pdf'
+"let g:Tex_DefaultTargetFormat='pdf'
+"let g:Tex_GotoError=0
+"let g:Tex_CompileRule_pdf='pdflatex $*.tex && bibtex $*.aux && pdflatex $*.tex && pdflatex $*.tex'
+"let g:Tex_CompileRule_dvi='latex $*.tex && bibtex $*.aux && latex $*.tex && latex $*.tex && dvipdf $*.dvi $.pdf'
+"let g:tex_indent_items = 1
