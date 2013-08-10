@@ -126,3 +126,6 @@ alias cd='go2 --cd' # caches all directorys you change to with cd
 # virtualenvwrapper
 export WORKON_HOME=$HOME/envs
 source /usr/local/bin/virtualenvwrapper.sh
+
+# zotero
+alias zotero=/opt/zotero/zotero
