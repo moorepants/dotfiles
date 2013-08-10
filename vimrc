@@ -1,40 +1,36 @@
+" This is stuff to get vundle working.
 set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+" Make sure you bundle vundle
 Bundle 'gmarik/vundle'
 
-" User installed vim plugins
+" List uUser installed vim plugins here. You can use Githbu shortcuts,
+" vim-scripts shortcuts, or direct links. See the vundel docs.
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
 Bundle 'klen/python-mode'
 Bundle 'davidhalter/jedi-vim'
+Bundle 'vim-scripts/taglist.vim'
+Bundle 'vim-scripts/ToggleComment'
 
-colorscheme ron
-syntax on
-filetype plugin indent on
+" Some general stuff
+colorscheme ron " A nice colorscheme
+syntax on " Use syntax highlighting
+filetype plugin indent on " Turn on plugins
 
 " This sends your yanks to the system clipboard allowing for easier copying and
 " pasting
 set clipboard=unnamed
 
 " This allows you to mouse select text even if you have the screen split
-"set mouse=a
-
-" This causes pyflakes not to load if the file ends in _auto.py. I use this
-" ending for really long python files, which slow vim down if pyflakes is
-" running.
-autocmd BufReadPre *_auto.py :let b:did_pyflakes_plugin=1
+" set mouse=a
 
 " NerdTree key mapping
 map <F3> :NERDTreeToggle<CR>
-
-" This allows one to toggle pyflakes using the fork
-" https://github.com/georgexsh/pyflakes-vim
-let g:pyflakes_autostart = 0
-map <F9> :PyflakesToggle<cr>
 
 " Sets the filetype for jinja files
 au BufNewFile,BufRead *.j2 set filetype=htmljinja
@@ -42,7 +38,7 @@ au BufNewFile,BufRead *.j2 set filetype=htmljinja
 " Sets the filetype for Autolev files
 au BufNewFile,BufRead *.al set filetype=
 
-set autowrite " saves the file when you swith buffers or execute external commands, otherwise vim asks if you want to save
+set autowrite " saves the file when you switch buffers or execute external commands, otherwise vim asks if you want to save
 set autoindent " will indent lines following indented lines
 set bs=indent,eol,start
 set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅ " adds some symbols for tabs, trailing whitespace, and non=breaking spaces
@@ -108,12 +104,6 @@ autocmd FileType rst source ~/.vim/after/ftplugin/rst.vim
 " This remembers where you were the last time you edited the file, and returns to the same position.
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
-" This remembers where you were the last time you edited the file, and returns
-" to the same postion.
-"if has("autocmd")
-"  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-"endif
-
 "highlights end of line whitespace as red
 if has('gui_running')
    hi WhiteSpaceEOL guibg=#FF0000
@@ -149,7 +139,7 @@ autocmd FileType html noremap <silent> <buffer> <M-c> :call CommentLinePincer('<
 " " IMPORTANT: grep will sometimes skip displaying the file name if you
 " " search in a singe file. This will confuse Latex-Suite. Set your grep
 " " program to always generate a file-name.
-set grepprg=grep\ -nH\ $*
+"set grepprg=grep\ -nH\ $*
 
 " OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
 " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
