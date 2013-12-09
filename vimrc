@@ -16,6 +16,7 @@ Bundle 'klen/python-mode'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'vim-scripts/ToggleComment'
+Bundle 'git://git.code.sf.net/p/vim-latex/vim-latex'
 
 " Some general stuff
 colorscheme ron " A nice colorscheme
@@ -139,19 +140,19 @@ autocmd FileType html noremap <silent> <buffer> <M-c> :call CommentLinePincer('<
 " " IMPORTANT: grep will sometimes skip displaying the file name if you
 " " search in a singe file. This will confuse Latex-Suite. Set your grep
 " " program to always generate a file-name.
-"set grepprg=grep\ -nH\ $*
+set grepprg=grep\ -nH\ $*
 
 " OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
 " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
 " The following changes the default filetype back to 'tex':
-"let g:tex_flavor='latex'
+let g:tex_flavor='latex'
 
-"let g:Tex_IgnoredWarnings="Underfull\nOverfull\nspecifier changed to\nYou have requested\nMissing number, treated as zero.\nThere were undefined references\nCitation %.%# undefined\nLaTeX Font Warning"
-"let g:Tex_IgnoreLevel=8
-"let g:Tex_ViewRule_pdf='evince $*.pdf'
-"let g:Tex_ViewRule_dvi='evince $*.pdf'
-"let g:Tex_DefaultTargetFormat='pdf'
-"let g:Tex_GotoError=0
-"let g:Tex_CompileRule_pdf='pdflatex $*.tex && bibtex $*.aux && pdflatex $*.tex && pdflatex $*.tex'
-"let g:Tex_CompileRule_dvi='latex $*.tex && bibtex $*.aux && latex $*.tex && latex $*.tex && dvipdf $*.dvi $.pdf'
-"let g:tex_indent_items = 1
+let g:Tex_IgnoredWarnings="Underfull\nOverfull\nspecifier changed to\nYou have requested\nMissing number, treated as zero.\nThere were undefined references\nCitation %.%# undefined\nLaTeX Font Warning"
+let g:Tex_IgnoreLevel=8
+let g:Tex_ViewRule_pdf='evince $*.pdf'
+let g:Tex_ViewRule_dvi='evince $*.pdf'
+let g:Tex_DefaultTargetFormat='pdf'
+let g:Tex_GotoError=0
+let g:Tex_CompileRule_pdf='pdflatex $*.tex && bibtex $*.aux && pdflatex $*.tex && pdflatex $*.tex'
+let g:Tex_CompileRule_dvi='latex $*.tex && bibtex $*.aux && latex $*.tex && latex $*.tex && dvipdf $*.dvi $.pdf'
+let g:tex_indent_items = 1

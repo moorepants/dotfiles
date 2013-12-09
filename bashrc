@@ -108,7 +108,8 @@ if ! shopt -oq posix; then
 fi
 
 # find the bicycle bibfile!
-#export BIBINPUTS="/media/Data/Documents/School/UC Davis/Bicycle Mechanics/Papers"
+#export BIBINPUTS="/home/moorepants/Research/bicycle-mechanics/Papers"
+#export BIBINPUTS="/home/moorepants/Literature"
 
 # access user install haskell libraries
 #export PATH=$PATH:~/.cabal/bin
