@@ -130,3 +130,19 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 # zotero
 alias zotero=/opt/zotero/zotero
+
+# added by Anaconda 2.0.0 installer
+export PATH="/home/moorepants/anaconda/bin:$PATH"
+alias condaenv='source activate'
+
+# simbody
+export SIMBODY_HOME=/usr/local
+
+# opensim
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/opensim/lib
+export PATH=/opt/opensim/bin:$PATH
+export OPENSIM_HOME=/opt/opensim
+
+# ipopt
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:~/src/CoinIpopt/lib/pkgconfig
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/src/CoinIpopt/lib

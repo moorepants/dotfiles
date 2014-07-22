@@ -101,6 +101,7 @@ autocmd FileType python source ~/.vim/after/ftplugin/python.vim
 autocmd FileType tex source ~/.vim/after/ftplugin/tex.vim
 autocmd FileType matlab source ~/.vim/after/ftplugin/matlab.vim
 autocmd FileType rst source ~/.vim/after/ftplugin/rst.vim
+autocmd FileType cpp source ~/.vim/after/ftplugin/cpp.vim
 
 " This remembers where you were the last time you edited the file, and returns to the same position.
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
