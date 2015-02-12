@@ -8,7 +8,7 @@ case $- in
       *) return;;
 esac
 
-# don't put duplicate lines or lines starting with space in the history.
+# Don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
 
@@ -22,6 +22,20 @@ HISTFILESIZE=2000
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
+
+# Fixes minor spelling errors in cd pathnames.
+shopt -s cdspell
+
+# Fix minor spelling errors on word completion if the given name does not exist
+# Requires bash 4 or greater
+if test $BASH_VERSINFO -ge 4;
+then shopt -s dirspell;
+fi
+
+# Complete hostnames after @
+shopt -s hostcomplete
+# Don't complete on empty lines (it hangs bash and is not very useful)
+shopt -s no_empty_cmd_completion
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -43,12 +57,12 @@ esac
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+        # We have color support; assume it's compliant with Ecma-48
+        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+        # a case would tend to support setf rather than setaf.)
+        color_prompt=yes
     else
-	color_prompt=
+        color_prompt=
     fi
 fi
 
@@ -131,9 +145,21 @@ source /usr/local/bin/virtualenvwrapper.sh
 # zotero
 alias zotero=/opt/zotero/zotero
 
-# added by Anaconda 2.0.0 installer
+# Anaconda
 export PATH="/home/moorepants/anaconda/bin:$PATH"
-alias condaenv='source activate'
+alias act='source activate'
+# TODO : deactvate seems to call "cd -P" and the go2 alias complains about that
+# flag.
+alias deact='source deactivate'
+eval "$(register-python-argcomplete conda)"
+# # complete source activate. Thanks to Paul Kienzle from NIST for the
+# # suggestion.
+_activate_complete ()
+{
+    local cur="${COMP_WORDS[COMP_CWORD]}";
+    COMPREPLY=($(compgen -W "`cd $HOME/anaconda/envs && ls -d *`" -- "$cur" ));
+}
+complete -F _activate_complete "act"
 
 # simbody
 export SIMBODY_HOME=/usr/local
@@ -144,5 +170,5 @@ export PATH=/opt/opensim/bin:$PATH
 export OPENSIM_HOME=/opt/opensim
 
 # ipopt
-export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:~/src/CoinIpopt/lib/pkgconfig
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/src/CoinIpopt/lib
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:~/src/CoinIpopt/build/lib/pkgconfig
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/src/CoinIpopt/build/lib
