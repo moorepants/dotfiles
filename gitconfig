@@ -1,0 +1,20 @@
+[user]
+	email = moorepants@gmail.com
+	name = Jason K. Moore
+[core]
+	editor = vim
+[color]
+	diff  = auto
+	status= auto
+	branch= auto
+	interactive = true
+[alias]
+	ci = commit
+	di = diff --color-words
+	st = status
+	co = checkout
+	log1 = log --pretty=oneline --abbrev-commit
+	logs = log --stat
+	# This allows you to quickly checkout the code from a pull request on
+	# Github into a new branch.
+	pr = !sh -c 'git fetch origin pull/$1/head:pr-$1 && git checkout pr-$1' -
