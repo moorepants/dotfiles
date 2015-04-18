@@ -39,6 +39,9 @@ au BufNewFile,BufRead *.j2 set filetype=htmljinja
 " Sets the filetype for Autolev files
 au BufNewFile,BufRead *.al set filetype=
 
+" Sets the filetype for Markdown files
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
 set autowrite " saves the file when you switch buffers or execute external commands, otherwise vim asks if you want to save
 set autoindent " will indent lines following indented lines
 set bs=indent,eol,start
@@ -157,3 +160,18 @@ let g:Tex_GotoError=0
 let g:Tex_CompileRule_pdf='pdflatex $*.tex && bibtex $*.aux && pdflatex $*.tex && pdflatex $*.tex'
 let g:Tex_CompileRule_dvi='latex $*.tex && bibtex $*.aux && latex $*.tex && latex $*.tex && dvipdf $*.dvi $.pdf'
 let g:tex_indent_items = 1
+
+" I accidentally hit F1 all the time when trying to hit escape and this brings
+" up the Gnome terminal help. So I disabled that via Edit > Keyboard Shortcuts
+" (press backspace). Now F1 brings up vim help, so remap F1 to esp only when in
+" insert mode, see http://vim.wikia.com/wiki/Disable_F1_built-in_help_key.
+inoremap <F1> <Esc>
+noremap <F1> :call MapF1()<CR>
+
+function! MapF1()
+  if &buftype == "help"
+    exec 'quit'
+  else
+    exec 'help'
+  endif
+endfunction
