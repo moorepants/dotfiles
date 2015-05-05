@@ -17,6 +17,7 @@ Bundle 'davidhalter/jedi-vim'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'vim-scripts/ToggleComment'
 Bundle 'git://git.code.sf.net/p/vim-latex/vim-latex'
+Bundle 'mitsuhiko/vim-jinja'
 
 " Some general stuff
 colorscheme ron " A nice colorscheme
