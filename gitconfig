@@ -17,4 +17,4 @@
 	logs = log --stat
 	# This allows you to quickly checkout the code from a pull request on
 	# Github into a new branch.
-	pr = !sh -c 'git fetch origin pull/$1/head:pr-$1 && git checkout pr-$1' -
+	pr = !sh -c 'git fetch upstream pull/$1/head:pr-$1 && git checkout pr-$1' -
