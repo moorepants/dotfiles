@@ -121,13 +121,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# find the bicycle bibfile!
-#export BIBINPUTS="/home/moorepants/Research/bicycle-mechanics/Papers"
-#export BIBINPUTS="/home/moorepants/Literature"
-
-# access user install haskell libraries
-#export PATH=$PATH:~/.cabal/bin
-
 # add path to my bin
 export PATH=$PATH:~/bin
 
@@ -137,10 +130,6 @@ alias matlab='matlab -nodesktop -nosplash'
 # go2
 [ -e /usr/lib/go2/go2.sh ] && source /usr/lib/go2/go2.sh
 alias cd='go2 --cd' # caches all directorys you change to with cd
-
-# virtualenvwrapper
-export WORKON_HOME=$HOME/envs
-source /usr/local/bin/virtualenvwrapper.sh
 
 # zotero
 alias zotero=/opt/zotero/zotero
