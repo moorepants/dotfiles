@@ -4,9 +4,9 @@
 # search *only* the channels listed here, in the order given. Use "default" to
 # automatically include all default channels.
 channels:
-  - moorepants
   - http://repo.continuum.io/pkgs/free
-  - https://conda.binstar.org/moorepants
+  - moorepants
+  - pydy
 
 # implies always using the --yes option whenever asked to proceed
 always_yes: True
