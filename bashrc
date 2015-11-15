@@ -134,8 +134,15 @@ alias cd='go2 --cd' # caches all directorys you change to with cd
 # zotero
 alias zotero=/opt/zotero/zotero
 
-# miniconda
-export PATH="/home/moorepants/miniconda/bin:$PATH"
+# miniconda/anaconda
+if [ -d $HOME/miniconda ]; then
+  CONDAPATH=$HOME/miniconda
+elif [ -d $HOME/miniconda3 ]; then
+  CONDAPATH=$HOME/miniconda3
+elif [ -d $HOME/anaconda ]; then
+  CONDAPATH=$HOME/anaconda
+fi
+export PATH="$CONDAPATH/bin:$PATH"
 alias act='source activate'
 # TODO : deactvate seems to call "cd -P" and the go2 alias complains about that
 # flag.
@@ -146,7 +153,7 @@ eval "$(register-python-argcomplete conda)"
 _activate_complete ()
 {
     local cur="${COMP_WORDS[COMP_CWORD]}";
-    COMPREPLY=($(compgen -W "`cd $HOME/miniconda/envs && ls -d *`" -- "$cur" ));
+    COMPREPLY=($(compgen -W "`cd $CONDAPATH/envs && ls -d *`" -- "$cur" ));
 }
 complete -F _activate_complete "act"
 
