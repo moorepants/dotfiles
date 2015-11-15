@@ -150,17 +150,17 @@ _activate_complete ()
 }
 complete -F _activate_complete "act"
 
-# simbody
-export SIMBODY_HOME=/usr/local
-
-# opensim
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/opensim/lib
-export PATH=/opt/opensim/bin:$PATH
-export OPENSIM_HOME=/opt/opensim
-
-# ipopt
-export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:~/src/CoinIpopt/build/lib/pkgconfig
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/src/CoinIpopt/build/lib
-
 # R
 alias R="R --no-save"
+
+# simbody
+#export SIMBODY_HOME=/usr/local
+
+# opensim
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/opensim/lib
+#export PATH=/opt/opensim/bin:$PATH
+#export OPENSIM_HOME=/opt/opensim
+
+# ipopt
+#export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:~/src/CoinIpopt/build/lib/pkgconfig
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/src/CoinIpopt/build/lib
