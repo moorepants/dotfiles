@@ -5,8 +5,9 @@
 # automatically include all default channels.
 channels:
   - http://repo.continuum.io/pkgs/free
-  - moorepants
+  - conda-forge
   - pydy
+  - moorepants
 
 # implies always using the --yes option whenever asked to proceed
 always_yes: True
