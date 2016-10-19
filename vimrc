@@ -91,6 +91,9 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 " Don't autofold code
 let g:pymode_folding = 0
 
+" Don't autocomplete 'import' in python.
+let g:jedi#smart_auto_mappings = 0
+
 " maps keys to commands
 map <F2> :w<CR>
 map <F8> :TlistToggle<CR><C-w>h
@@ -107,6 +110,7 @@ autocmd FileType matlab source ~/.vim/after/ftplugin/matlab.vim
 autocmd FileType rst source ~/.vim/after/ftplugin/rst.vim
 autocmd FileType cpp source ~/.vim/after/ftplugin/cpp.vim
 autocmd FileType R source ~/.vim/after/ftplugin/r.vim
+autocmd FileType javascript source ~/.vim/after/ftplugin/javascript.vim
 
 " This remembers where you were the last time you edited the file, and returns to the same position.
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
