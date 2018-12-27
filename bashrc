@@ -157,6 +157,10 @@ _activate_complete ()
 }
 complete -F _activate_complete "act"
 
+# temp fix for conda(forge) qt error
+# https://stackoverflow.com/questions/50555973/qgtkstyle-could-not-resolve-gtk
+export QT_STYLE_OVERRIDE=gtk2
+
 # R
 alias R="R --no-save"
 
@@ -171,3 +175,13 @@ alias R="R --no-save"
 # ipopt
 #export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:~/src/CoinIpopt/build/lib/pkgconfig
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/src/CoinIpopt/build/lib
+
+# For SWC workshops to mimic notepad++
+alias npp="gedit"
+alias notepad++="gedit"
+
+# turns off the stupid beeping when typing in terminal? xset b off &
+
+# some weird conda glib bug, see
+# https://github.com/conda-forge/glib-feedstock/issues/19
+export GIO_EXTRA_MODULES=/usr/lib/x86_64-linux-gnu/gio/modules/
