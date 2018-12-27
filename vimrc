@@ -3,21 +3,26 @@ set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
 
 " Make sure you bundle vundle
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " List uUser installed vim plugins here. You can use Githbu shortcuts,
 " vim-scripts shortcuts, or direct links. See the vundel docs.
-Bundle 'tpope/vim-fugitive'
-Bundle 'scrooloose/nerdtree'
-Bundle 'klen/python-mode'
-Bundle 'davidhalter/jedi-vim'
-Bundle 'vim-scripts/taglist.vim'
-Bundle 'vim-scripts/ToggleComment'
-Bundle 'git://git.code.sf.net/p/vim-latex/vim-latex'
-Bundle 'mitsuhiko/vim-jinja'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdtree'
+" Once python-mode dev is fixed, remove pinned, and manually checkout develop
+" branch to let vundle keep doing it's thing. I have python-mode checked out to
+" version 0.9.0.
+Plugin 'klen/python-mode' , {'pinned': 1}  " this pinned disables updating
+Plugin 'davidhalter/jedi-vim'
+Plugin 'vim-scripts/taglist.vim'
+Plugin 'vim-scripts/ToggleComment'
+Plugin 'vim-latex/vim-latex'
+Plugin 'mitsuhiko/vim-jinja'
+
+call vundle#end()
 
 " Some general stuff
 colorscheme ron " A nice colorscheme
@@ -63,6 +68,9 @@ set textwidth=79 " sets wrapping default as 79 characters
 " ]]            Jump on next class or function (normal, visual, operator modes)
 " [M            Jump on previous class or method (normal, visual, operator modes)
 " ]M            Jump on next class or method (normal, visual, operator modes)
+" Assume Python 3 syntax
+let g:pymode_python = 'python3'
+" Don't use rope, using Jedi as a separate install instead.
 let g:pymode_rope = 0
 "
 " Documentation
@@ -71,9 +79,10 @@ let g:pymode_doc_key = 'K'
 "
 "Linting
 let g:pymode_lint = 1
-let g:pymode_lint_checker = "pyflakes,pep8"
+let g:pymode_lint_checker = ['pyflakes', 'pep8', 'mccabe']
 " Auto check on save
 let g:pymode_lint_write = 1
+let g:pymode_lint_unmodifed = 1
 "
 " Support virtualenv
 let g:pymode_virtualenv = 1
@@ -91,6 +100,7 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 " Don't autofold code
 let g:pymode_folding = 0
 
+" Python Jedi
 " Don't autocomplete 'import' in python.
 let g:jedi#smart_auto_mappings = 0
 
@@ -181,3 +191,7 @@ function! MapF1()
     exec 'help'
   endif
 endfunction
+
+" Spell check
+set spelllang=en
+set spellfile=$HOME/bin/en.utf-8.add
