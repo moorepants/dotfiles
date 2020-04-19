@@ -11,11 +11,8 @@ Plugin 'gmarik/vundle'
 " List uUser installed vim plugins here. You can use Githbu shortcuts,
 " vim-scripts shortcuts, or direct links. See the vundel docs.
 Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdtree'
-" Once python-mode dev is fixed, remove pinned, and manually checkout develop
-" branch to let vundle keep doing it's thing. I have python-mode checked out to
-" version 0.9.0.
-Plugin 'klen/python-mode' , {'pinned': 1}  " this pinned disables updating
+Plugin 'preservim/nerdtree'
+Plugin 'python-mode/python-mode'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'vim-scripts/ToggleComment'
