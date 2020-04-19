@@ -6,7 +6,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#begin()
 
 " Make sure you bundle vundle
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 " List uUser installed vim plugins here. You can use Githbu shortcuts,
 " vim-scripts shortcuts, or direct links. See the vundel docs.
