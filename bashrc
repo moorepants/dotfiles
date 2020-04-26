@@ -151,7 +151,11 @@ alias act='source activate'
 # TODO : deactvate seems to call "cd -P" and the go2 alias complains about that
 # flag.
 alias deact='source deactivate'
-eval "$(register-python-argcomplete conda)"
+if [[ $UBUNTUVER < 20 ]]; then
+	eval "$(register-python-argcomplete conda)"
+else
+	eval "$(register-python-argcomplete3 conda)"
+fi
 # # complete source activate. Thanks to Paul Kienzle from NIST for the
 # # suggestion.
 _activate_complete ()
