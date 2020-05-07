@@ -3,9 +3,10 @@
 # channel locations. These override conda defaults, i.e., conda will
 # search *only* the channels listed here, in the order given. Use "default" to
 # automatically include all default channels.
+channel_priority: strict
 channels:
   - conda-forge
-  - http://repo.continuum.io/pkgs/free
+  - defaults
   - pydy
   - moorepants
 
