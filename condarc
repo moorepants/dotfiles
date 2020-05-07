@@ -13,11 +13,6 @@ channels:
 # implies always using the --yes option whenever asked to proceed
 always_yes: true
 
-# when creating new environments add these packages by default
-#create_default_packages:
-  #- ipython
-  #- pip
-
 # this is required for conda build to work on encrypted home folders, see:
 # https://github.com/conda/conda-build/issues/1331
 conda-build:

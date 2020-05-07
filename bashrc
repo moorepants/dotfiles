@@ -136,7 +136,11 @@ function go2-cd() {
     \cd $*
   fi
 }
-alias cd='go2-cd' # caches all directorys you change to with cd
+# NOTE : go2 is no longer available in 20.04 LTS
+UBUNTUVER=$(echo $(lsb_release -rs) | bc -l)
+if [[ $UBUNTUVER < 20 ]]; then
+  alias cd='go2-cd' # caches all directorys you change to with cd
+fi
 
 # zotero
 alias zotero=/opt/zotero/zotero
@@ -154,7 +158,11 @@ alias act='source activate'
 # TODO : deactvate seems to call "cd -P" and the go2 alias complains about that
 # flag.
 alias deact='source deactivate'
-eval "$(register-python-argcomplete conda)"
+if [[ $UBUNTUVER < 20 ]]; then
+	eval "$(register-python-argcomplete conda)"
+else
+	eval "$(register-python-argcomplete3 conda)"
+fi
 # # complete source activate. Thanks to Paul Kienzle from NIST for the
 # # suggestion.
 _activate_complete ()
