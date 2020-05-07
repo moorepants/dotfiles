@@ -129,7 +129,14 @@ alias matlab='matlab -nodesktop -nosplash'
 
 # go2
 [ -e /usr/lib/go2/go2.sh ] && source /usr/lib/go2/go2.sh
-alias cd='go2 --cd' # caches all directorys you change to with cd
+function go2-cd() {
+  if type go2 &> /dev/null; then
+    go2 --cd $*
+  else
+    \cd $*
+  fi
+}
+alias cd='go2-cd' # caches all directorys you change to with cd
 
 # zotero
 alias zotero=/opt/zotero/zotero
