@@ -1,11 +1,13 @@
-# This is a sample .condarc file
-
+# Enable this priority if you want to always install from the first channel in
+# the list unless the package is **only** in the channel below.
+# Enabling this seems to make it impossible to resolve version conflicts.
+channel_priority: strict
 # channel locations. These override conda defaults, i.e., conda will
 # search *only* the channels listed here, in the order given. Use "default" to
 # automatically include all default channels.
 channels:
   - conda-forge
-  - http://repo.continuum.io/pkgs/free
+  - defaults
   - pydy
   - moorepants
 
@@ -22,3 +24,4 @@ always_yes: true
 conda-build:
   root-dir: /tmp/conda-builds
 ssl_verify: true
+path_conflict: warn
