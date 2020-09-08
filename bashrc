@@ -192,8 +192,8 @@ alias R="R --no-save"
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/src/CoinIpopt/build/lib
 
 # For SWC workshops to mimic notepad++
-alias npp="gedit"
-alias notepad++="gedit"
+#alias npp="gedit"
+#alias notepad++="gedit"
 
 # turns off the stupid beeping when typing in terminal? xset b off &
 
