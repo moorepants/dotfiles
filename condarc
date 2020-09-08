@@ -5,6 +5,7 @@ channel_priority: strict
 # channel locations. These override conda defaults, i.e., conda will
 # search *only* the channels listed here, in the order given. Use "default" to
 # automatically include all default channels.
+channel_priority: strict
 channels:
   - conda-forge
   - defaults
@@ -13,11 +14,6 @@ channels:
 
 # implies always using the --yes option whenever asked to proceed
 always_yes: true
-
-# when creating new environments add these packages by default
-#create_default_packages:
-  #- ipython
-  #- pip
 
 # this is required for conda build to work on encrypted home folders, see:
 # https://github.com/conda/conda-build/issues/1331
