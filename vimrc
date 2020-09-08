@@ -121,6 +121,7 @@ autocmd FileType rst source ~/.vim/after/ftplugin/rst.vim
 autocmd FileType cpp source ~/.vim/after/ftplugin/cpp.vim
 autocmd FileType R source ~/.vim/after/ftplugin/r.vim
 autocmd FileType javascript source ~/.vim/after/ftplugin/javascript.vim
+autocmd FileType yaml source ~/.vim/after/ftplugin/yaml.vim
 
 " This remembers where you were the last time you edited the file, and returns to the same position.
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
