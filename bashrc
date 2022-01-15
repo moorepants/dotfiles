@@ -184,12 +184,11 @@ alias R="R --no-save"
 #export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:~/src/CoinIpopt/build/lib/pkgconfig
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/src/CoinIpopt/build/lib
 
-# For SWC workshops to mimic notepad++
-alias npp="gedit"
-alias notepad++="gedit"
-
 # turns off the stupid beeping when typing in terminal? xset b off &
 
 # some weird conda glib bug, see
 # https://github.com/conda-forge/glib-feedstock/issues/19
 export GIO_EXTRA_MODULES=/usr/lib/x86_64-linux-gnu/gio/modules/
+
+alias foundry=/opt/foundryvtt/foundryvtt
+[ -e /home/moorepants/miniconda/lib/go2/go2.sh ] && source /home/moorepants/miniconda/lib/go2/go2.sh
