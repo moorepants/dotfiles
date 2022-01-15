@@ -19,6 +19,7 @@ Plugin 'vim-scripts/ToggleComment'
 Plugin 'vim-latex/vim-latex'
 Plugin 'mitsuhiko/vim-jinja'
 Plugin 'jpalardy/vim-slime'
+Plugin 'pcgen/vim-pcgen'
 
 call vundle#end()
 
