@@ -128,7 +128,6 @@ export PATH=$PATH:~/bin
 alias matlab='matlab -nodesktop -nosplash'
 
 # go2
-[ -e /usr/lib/go2/go2.sh ] && source /usr/lib/go2/go2.sh
 function go2-cd() {
   if type go2 &> /dev/null; then
     go2 --cd $*
@@ -136,11 +135,14 @@ function go2-cd() {
     \cd $*
   fi
 }
-# NOTE : go2 is no longer available in 20.04 LTS
+# NOTE : go2 is no longer available in 20.04 LTS so I install with conda
 UBUNTUVER=$(echo $(lsb_release -rs) | bc -l)
 if [[ $UBUNTUVER < 20 ]]; then
-  alias cd='go2-cd' # caches all directorys you change to with cd
+  [ -e /usr/lib/go2/go2.sh ] && source /usr/lib/go2/go2.sh
+else
+  [ -e /home/moorepants/miniconda/lib/go2/go2.sh ] && source /home/moorepants/miniconda/lib/go2/go2.sh
 fi
+alias cd='go2-cd' # caches all directorys you change to with cd
 
 # zotero
 alias zotero=/opt/zotero/zotero
