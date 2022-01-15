@@ -18,6 +18,7 @@ Plugin 'vim-scripts/taglist.vim'
 Plugin 'vim-scripts/ToggleComment'
 Plugin 'vim-latex/vim-latex'
 Plugin 'mitsuhiko/vim-jinja'
+Plugin 'jpalardy/vim-slime'
 
 call vundle#end()
 
@@ -193,3 +194,18 @@ endfunction
 " Spell check
 set spelllang=en
 set spellfile=$HOME/bin/en.utf-8.add
+
+" vim-slime
+" I added a new (uncommitted) ftplugin for rst file in
+" .vim/bundle/vim-slime/ftplugin that is a copy of the python ftplugin so that
+" dedenting works.
+let g:slime_target = 'tmux'
+let g:slime_default_config = {
+            \ 'socket_name': get(split($TMUX, ','), 0),
+            \ 'target_pane': '{top-right}' }
+let g:slime_dont_ask_default = 1
+let g:slime_python_ipython = 1
+
+" \h will execute these commands
+nmap <Leader>h <Plug>SlimeLineSend
+xmap <Leader>h <Plug>SlimeRegionSend
