@@ -18,6 +18,7 @@ Plugin 'vim-scripts/taglist.vim'
 Plugin 'vim-scripts/ToggleComment'
 Plugin 'vim-latex/vim-latex'
 Plugin 'mitsuhiko/vim-jinja'
+Plugin 'pcgen/vim-pcgen'
 
 call vundle#end()
 
