@@ -142,7 +142,7 @@ if [[ $UBUNTUVER < 20 ]]; then
 else
   [ -e /home/moorepants/miniconda/lib/go2/go2.sh ] && source /home/moorepants/miniconda/lib/go2/go2.sh
 fi
-alias cd='go2-cd' # caches all directorys you change to with cd
+#alias cd='go2-cd' # caches all directorys you change to with cd
 
 # zotero
 alias zotero=/opt/zotero/zotero
@@ -200,4 +200,3 @@ alias R="R --no-save"
 export GIO_EXTRA_MODULES=/usr/lib/x86_64-linux-gnu/gio/modules/
 
 alias foundry=/opt/foundryvtt/foundryvtt
-[ -e /home/moorepants/miniconda/lib/go2/go2.sh ] && source /home/moorepants/miniconda/lib/go2/go2.sh
