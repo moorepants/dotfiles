@@ -10,16 +10,16 @@ Plugin 'VundleVim/Vundle.vim'
 
 " List uUser installed vim plugins here. You can use Githbu shortcuts,
 " vim-scripts shortcuts, or direct links. See the vundel docs.
-Plugin 'tpope/vim-fugitive'
+"Plugin 'davidhalter/jedi-vim'
+Plugin 'jpalardy/vim-slime'
+Plugin 'mitsuhiko/vim-jinja'
+Plugin 'pcgen/vim-pcgen'
 Plugin 'preservim/nerdtree'
 Plugin 'python-mode/python-mode'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'vim-scripts/taglist.vim'
-Plugin 'vim-scripts/ToggleComment'
+Plugin 'tpope/vim-fugitive'
 Plugin 'vim-latex/vim-latex'
-Plugin 'mitsuhiko/vim-jinja'
-Plugin 'jpalardy/vim-slime'
-Plugin 'pcgen/vim-pcgen'
+Plugin 'vim-scripts/ToggleComment'
+Plugin 'vim-scripts/taglist.vim'
 
 call vundle#end()
 
@@ -35,7 +35,7 @@ set clipboard=unnamed
 " This allows you to mouse select text even if you have the screen split
 " set mouse=a
 
-" NerdTree key mapping
+" NerdTree key mapping, press F3
 map <F3> :NERDTreeToggle<CR>
 
 " Sets the filetype for jinja files
@@ -112,14 +112,14 @@ let Tlist_Inc_Winwidth=0
 set fileencodings=ucs-bom,utf-8,default,latin2
 
 " load some overrides for particular filetypes
-autocmd FileType html source ~/.vim/after/ftplugin/html.vim
-autocmd FileType python source ~/.vim/after/ftplugin/python.vim
-autocmd FileType tex source ~/.vim/after/ftplugin/tex.vim
-autocmd FileType matlab source ~/.vim/after/ftplugin/matlab.vim
-autocmd FileType rst source ~/.vim/after/ftplugin/rst.vim
-autocmd FileType cpp source ~/.vim/after/ftplugin/cpp.vim
 autocmd FileType R source ~/.vim/after/ftplugin/r.vim
+autocmd FileType cpp source ~/.vim/after/ftplugin/cpp.vim
+autocmd FileType html source ~/.vim/after/ftplugin/html.vim
 autocmd FileType javascript source ~/.vim/after/ftplugin/javascript.vim
+autocmd FileType matlab source ~/.vim/after/ftplugin/matlab.vim
+autocmd FileType python source ~/.vim/after/ftplugin/python.vim
+autocmd FileType rst source ~/.vim/after/ftplugin/rst.vim
+autocmd FileType tex source ~/.vim/after/ftplugin/tex.vim
 autocmd FileType yaml source ~/.vim/after/ftplugin/yaml.vim
 
 " This remembers where you were the last time you edited the file, and returns to the same position.

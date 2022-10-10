@@ -19,3 +19,5 @@
 	# Github into a new branch.
 	pr = !sh -c 'git fetch upstream pull/$1/head:pr-$1 && git checkout pr-$1' -
 	pro = !sh -c 'git fetch origin pull/$1/head:pr-$1 && git checkout pr-$1' -
+[pull]
+	rebase = false  # should cause a merge commit on pull
