@@ -55,22 +55,11 @@ set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅ " adds some symbols for tabs, t
 set textwidth=79 " sets wrapping default as 79 characters
 
 " Python-mode
-" Activate rope
-" Keys:
-" K             Show python docs
-" <Ctrl-Space>  Rope autocomplete
-" <Ctrl-c>g     Rope goto definition
-" <Ctrl-c>d     Rope show documentation
-" <Ctrl-c>f     Rope find occurrences
-" <Leader>b     Set, unset breakpoint (g:pymode_breakpoint enabled)
-" [[            Jump on previous class or function (normal, visual, operator modes)
-" ]]            Jump on next class or function (normal, visual, operator modes)
-" [M            Jump on previous class or method (normal, visual, operator modes)
-" ]M            Jump on next class or method (normal, visual, operator modes)
-" Assume Python 3 syntax
-let g:pymode_python = 'python3'
+" rope is a code completion library that will conflict with jedi-vim
 " Don't use rope, using Jedi as a separate install instead.
 let g:pymode_rope = 0
+" Disable special keys for jumping around to classes & functions
+let g:pymode_motion = 0
 "
 " Documentation
 let g:pymode_doc = 1
@@ -83,14 +72,10 @@ let g:pymode_lint_checker = ['pyflakes', 'pep8', 'mccabe']
 let g:pymode_lint_write = 1
 let g:pymode_lint_unmodifed = 1
 "
-" Support virtualenv
-let g:pymode_virtualenv = 1
+" Disable virtualenv support
+let g:pymode_virtualenv = 0
 "
-" Enable breakpoints plugin
-let g:pymode_breakpoint = 1
-let g:pymode_breakpoint_key = '<leader>b'
-"
-" syntax highlighting
+" syntax highlighting (these are already the default settings)
 let g:pymode_syntax = 1
 let g:pymode_syntax_all = 1
 let g:pymode_syntax_indent_errors = g:pymode_syntax_all
@@ -98,8 +83,11 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 "
 " Don't autofold code
 let g:pymode_folding = 0
+" End Python-mode
 
 " Python Jedi
+" Disable jedi vim on typing ., use <Ctrl + Space>
+let g:jedi#popup_on_dot = 0
 " Don't autocomplete 'import' in python.
 let g:jedi#smart_auto_mappings = 0
 

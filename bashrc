@@ -174,10 +174,6 @@ _activate_complete ()
 }
 complete -F _activate_complete "act"
 
-# temp fix for conda(forge) qt error
-# https://stackoverflow.com/questions/50555973/qgtkstyle-could-not-resolve-gtk
-export QT_STYLE_OVERRIDE=gtk2
-
 # R
 alias R="R --no-save"
 
