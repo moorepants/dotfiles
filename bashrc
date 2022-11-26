@@ -160,7 +160,7 @@ alias act='source activate'
 # TODO : deactvate seems to call "cd -P" and the go2 alias complains about that
 # flag.
 alias deact='source deactivate'
-if [[ $UBUNTUVER < 20 ]]; then
+if [[ $UBUNTUVER < 20 ]] || [[ $UBUNTUVER > 22.04 ]] ; then
 	eval "$(register-python-argcomplete conda)"
 else
 	eval "$(register-python-argcomplete3 conda)"
