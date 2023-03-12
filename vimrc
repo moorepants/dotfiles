@@ -8,7 +8,7 @@ call vundle#begin()
 " Make sure you bundle vundle
 Plugin 'VundleVim/Vundle.vim'
 
-" List uUser installed vim plugins here. You can use Githbu shortcuts,
+" List user installed vim plugins here. You can use Github shortcuts,
 " vim-scripts shortcuts, or direct links. See the vundel docs.
 "Plugin 'davidhalter/jedi-vim'
 Plugin 'jpalardy/vim-slime'
