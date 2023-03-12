@@ -5,8 +5,6 @@
 channel_priority: strict
 channels:
   - conda-forge
-  - pydy
-  - moorepants
 
 # implies always using the --yes option whenever asked to proceed
 always_yes: true
