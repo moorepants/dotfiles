@@ -25,7 +25,6 @@ Plugin 'lervag/vimtex'
 call vundle#end()
 
 " Some general stuff
-colorscheme ron " A nice colorscheme
 syntax on " Use syntax highlighting
 filetype plugin indent on " Turn on plugins
 
