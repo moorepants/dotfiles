@@ -160,6 +160,7 @@ alias act='source activate'
 # TODO : deactvate seems to call "cd -P" and the go2 alias complains about that
 # flag.
 alias deact='source deactivate'
+alias condarm='conda env remove -n'
 if [[ $UBUNTUVER < 20 ]] || [[ $UBUNTUVER > 22.04 ]] ; then
 	eval "$(register-python-argcomplete conda)"
 else
@@ -173,6 +174,13 @@ _activate_complete ()
     COMPREPLY=($(compgen -W "`cd $CONDAPATH/envs && ls -d *`" -- "$cur" ));
 }
 complete -F _activate_complete "act"
+
+_condarm_complete ()
+{
+    local cur="${COMP_WORDS[COMP_CWORD]}";
+    COMPREPLY=($(compgen -W "`cd $CONDAPATH/envs && ls -d *`" -- "$cur" ));
+}
+complete -F _condarm_complete "condarm"
 
 # R
 alias R="R --no-save"
