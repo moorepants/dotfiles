@@ -71,6 +71,7 @@ let g:pymode_lint_checker = ['pyflakes', 'pep8', 'mccabe']
 " Auto check on save
 let g:pymode_lint_write = 1
 let g:pymode_lint_unmodifed = 1
+let g:pymode_lint_options_pycodestyle = {'ignore': 'E226'}
 "
 " Disable virtualenv support
 let g:pymode_virtualenv = 0
