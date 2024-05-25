@@ -10,17 +10,18 @@ Plugin 'VundleVim/Vundle.vim'
 
 " List user installed vim plugins here. You can use Github shortcuts,
 " vim-scripts shortcuts, or direct links. See the vundel docs.
-"Plugin 'davidhalter/jedi-vim'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'jpalardy/vim-slime'
+Plugin 'lervag/vimtex'
 Plugin 'mitsuhiko/vim-jinja'
 Plugin 'pcgen/vim-pcgen'
 Plugin 'preservim/nerdtree'
 Plugin 'python-mode/python-mode'
 Plugin 'tpope/vim-fugitive'
+"vimtex is a modern replacment for vim-latex
 "Plugin 'vim-latex/vim-latex'
 Plugin 'vim-scripts/ToggleComment'
 Plugin 'vim-scripts/taglist.vim'
-Plugin 'lervag/vimtex'
 
 call vundle#end()
 
@@ -55,6 +56,7 @@ set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅ " adds some symbols for tabs, t
 set textwidth=79 " sets wrapping default as 79 characters
 
 " Python-mode
+let g:pymode = 1
 " rope is a code completion library that will conflict with jedi-vim
 " Don't use rope, using Jedi as a separate install instead.
 let g:pymode_rope = 0
@@ -71,7 +73,9 @@ let g:pymode_lint_checker = ['pyflakes', 'pep8', 'mccabe']
 " Auto check on save
 let g:pymode_lint_write = 1
 let g:pymode_lint_unmodifed = 1
-let g:pymode_lint_options_pycodestyle = {'ignore': 'E226'}
+" flake8: Missing whitespace around operator (E225)
+" flake8: Missing whitespace around arithmetic operator (E226)
+let g:pymode_lint_ignore = ["E225", "E226"]
 "
 " Disable virtualenv support
 let g:pymode_virtualenv = 0
