@@ -56,6 +56,12 @@ set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅ " adds some symbols for tabs, t
 set textwidth=79 " sets wrapping default as 79 characters
 
 " Python-mode
+" pylama imports from pkg_resources but that is not available with whatever
+" python pymode runs. So I cloned setuptools in the pymode submodules folder
+" and symlinked pkg_resources in the libs dir:
+" cd .vim/bundle/python-mode/pymode/submodules
+" git clone git@github.com:pypa/setuptools.git
+" ln -s ../../submodules/setuptools/pkg_resources/ pkg_resources"
 let g:pymode = 1
 " rope is a code completion library that will conflict with jedi-vim
 " Don't use rope, using Jedi as a separate install instead.
@@ -64,7 +70,9 @@ let g:pymode_rope = 0
 let g:pymode_motion = 0
 "
 " Documentation
-let g:pymode_doc = 1
+" pymode shift-k doesn't seem to work, but disabling will let jedi's shift-k
+" work.
+let g:pymode_doc = 0
 let g:pymode_doc_key = 'K'
 "
 "Linting
