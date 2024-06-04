@@ -156,10 +156,10 @@ elif [ -d $HOME/anaconda ]; then
   CONDAPATH=$HOME/anaconda
 fi
 export PATH="$CONDAPATH/bin:$PATH"
-alias act='source activate'
+alias act='conda activate'
 # TODO : deactvate seems to call "cd -P" and the go2 alias complains about that
 # flag.
-alias deact='source deactivate'
+alias deact='conda deactivate'
 alias condarm='conda env remove -n'
 if [[ $UBUNTUVER < 20 ]] || [[ $UBUNTUVER > 22.04 ]] ; then
 	eval "$(register-python-argcomplete conda)"
