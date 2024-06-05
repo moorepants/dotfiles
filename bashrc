@@ -156,7 +156,7 @@ elif [ -d $HOME/anaconda ]; then
   CONDAPATH=$HOME/anaconda
 fi
 export PATH="$CONDAPATH/bin:$PATH"
-alias act='conda activate'
+alias act='source activate'
 # TODO : deactvate seems to call "cd -P" and the go2 alias complains about that
 # flag.
 alias deact='conda deactivate'
