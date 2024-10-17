@@ -144,9 +144,6 @@ else
 fi
 #alias cd='go2-cd' # caches all directorys you change to with cd
 
-# zotero
-alias zotero=/opt/zotero/zotero
-
 # miniconda/anaconda
 if [ -d $HOME/miniconda ]; then
   CONDAPATH=$HOME/miniconda
@@ -161,6 +158,7 @@ alias act='source activate'
 # flag.
 alias deact='conda deactivate'
 alias condarm='conda env remove -n'
+alias condacr='conda env create -f'
 if [[ $UBUNTUVER < 20 ]] || [[ $UBUNTUVER > 22.04 ]] ; then
 	eval "$(register-python-argcomplete conda)"
 else
