@@ -18,8 +18,6 @@ Plugin 'pcgen/vim-pcgen'
 Plugin 'preservim/nerdtree'
 Plugin 'python-mode/python-mode'
 Plugin 'tpope/vim-fugitive'
-"vimtex is a modern replacment for vim-latex
-"Plugin 'vim-latex/vim-latex'
 Plugin 'vim-scripts/ToggleComment'
 Plugin 'vim-scripts/taglist.vim'
 
