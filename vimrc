@@ -4,10 +4,8 @@ filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
 " Make sure you bundle vundle
 Plugin 'VundleVim/Vundle.vim'
-
 " List user installed vim plugins here. You can use Github shortcuts,
 " vim-scripts shortcuts, or direct links. See the vundel docs.
 Plugin 'jpalardy/vim-slime'
@@ -19,8 +17,11 @@ Plugin 'python-mode/python-mode'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/ToggleComment'
 Plugin 'vim-scripts/taglist.vim'
-
+" Plugin 'ycm-core/YouCompleteMe'
+Plugin 'girishji/vimcomplete'
 call vundle#end()
+
+let g:vimcomplete_tab_enable = 1
 
 " Some general stuff
 syntax on " Use syntax highlighting
@@ -30,9 +31,9 @@ filetype plugin indent on " Turn on plugins
 " pasting, use :%y+ for example.
 set clipboard=unnamed
 
-" This allows you to mouse select text even if you have the screen split
-set mouse=a
-
+" This allows you to mouse select text even if you have the screen split, but
+" it seems to disable right click copy.
+" set mouse=a
 
 set autowrite " saves the file when you switch buffers or execute external commands, otherwise vim asks if you want to save
 set autoindent " will indent lines following indented lines
@@ -93,6 +94,16 @@ autocmd FileType rst source ~/.vim/after/ftplugin/rst.vim
 autocmd FileType tex source ~/.vim/after/ftplugin/tex.vim
 autocmd FileType yaml source ~/.vim/after/ftplugin/yaml.vim
 
+"""""""""""""""""
+" YouCompleteMe "
+"""""""""""""""""
+" Vundle cannot install YouCompleteMe simply by cloning the repository. After
+" you run BundleInstall or BundleUpdate then:
+" cd ~/.vim/bundle/YouCompleteMe
+" ./install.py
+" A C++ compiler and cmake is needed, etc., but this then works.
+" let g:ycm_autoclose_preview_window_after_completion = 1
+
 """"""""""""
 " NerdTree "
 """"""""""""
@@ -113,7 +124,9 @@ map <F3> :NERDTreeToggle<CR>
 let g:pymode = 1 " turn pymode on and off
 " rope is a code completion library that will conflict with jedi-vim, so turn
 " it off if using jedi-vim.
-let g:pymode_rope = 1 " turn rope on and off
+let g:pymode_rope = 0 " turn rope on and off
+let g:pymode_rope_completion = 0  " turn on autocompletion
+let g:pymode_rope_autoimport = 0  " import modules in script so they can complete
 " Disable special keys for jumping around to classes & functions
 let g:pymode_motion = 0
 "
@@ -142,7 +155,6 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 "
 " Don't autofold code
 let g:pymode_folding = 0
-" End Python-mode
 
 """""""""""
 " taglist "
