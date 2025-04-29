@@ -8,6 +8,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " List user installed vim plugins here. You can use Github shortcuts,
 " vim-scripts shortcuts, or direct links. See the vundel docs.
+Plugin 'girishji/vimcomplete'
 Plugin 'jpalardy/vim-slime'
 Plugin 'lervag/vimtex'
 Plugin 'mitsuhiko/vim-jinja'
@@ -17,11 +18,9 @@ Plugin 'python-mode/python-mode'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/ToggleComment'
 Plugin 'vim-scripts/taglist.vim'
+Plugin 'yegappan/lsp'
 " Plugin 'ycm-core/YouCompleteMe'
-Plugin 'girishji/vimcomplete'
 call vundle#end()
-
-let g:vimcomplete_tab_enable = 1
 
 " Some general stuff
 syntax on " Use syntax highlighting
@@ -104,6 +103,28 @@ autocmd FileType yaml source ~/.vim/after/ftplugin/yaml.vim
 " A C++ compiler and cmake is needed, etc., but this then works.
 " let g:ycm_autoclose_preview_window_after_completion = 1
 
+"""""""""""""""
+" vimcomplete "
+"""""""""""""""
+let g:vimcomplete_tab_enable = 1
+
+"""""""
+" lsp "
+"""""""
+" vimcomplete uses lsp and you can add different language servers with the
+" configuration below.
+let lspOpts = #{autoHighlightDiags: v:true}
+autocmd User LspSetup call LspOptionsSet(lspOpts)
+
+" the path to this may not be the same on all my computers, pylsp can be
+" installed via apt
+let lspServers = [#{
+    \ name: 'pylsp',
+    \ filetype: ['python'],
+    \ path: '/home/moorepants/miniconda/bin/pylsp',
+    \ }]
+autocmd User LspSetup call LspAddServer(lspServers)
+
 """"""""""""
 " NerdTree "
 """"""""""""
@@ -122,8 +143,8 @@ map <F3> :NERDTreeToggle<CR>
 " ln -s ../../submodules/setuptools/pkg_resources/ pkg_resources"
 
 let g:pymode = 1 " turn pymode on and off
-" rope is a code completion library that will conflict with jedi-vim, so turn
-" it off if using jedi-vim.
+" rope is a code completion library that will conflict with jedi-vim or other
+" code completers, so turn it off if using a code completer.
 let g:pymode_rope = 0 " turn rope on and off
 let g:pymode_rope_completion = 0  " turn on autocompletion
 let g:pymode_rope_autoimport = 0  " import modules in script so they can complete
