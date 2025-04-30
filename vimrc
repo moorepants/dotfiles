@@ -113,15 +113,58 @@ let g:vimcomplete_tab_enable = 1
 """""""
 " vimcomplete uses lsp and you can add different language servers with the
 " configuration below.
+" TODO : configure pylsp to only use completion (for now):
+" https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
 let lspOpts = #{autoHighlightDiags: v:true}
 autocmd User LspSetup call LspOptionsSet(lspOpts)
 
 " the path to this may not be the same on all my computers, pylsp can be
 " installed via apt
+" configure the pylsp to disable everything but jedi (I use python-mode for
+" everything else) configuration explained:
+" - https://github.com/yegappan/lsp/issues/504
+" - https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
 let lspServers = [#{
     \ name: 'pylsp',
     \ filetype: ['python'],
     \ path: '/home/moorepants/miniconda/bin/pylsp',
+    \ workspaceConfig: {
+    \   'pylsp': {
+    \     'configurationSources': [],
+    \     'plugins': {
+    \       'jedi_compeltion': {
+    \         'enabled': 1,
+    \       },
+    \       'autopep8': {
+    \         'enabled': 0,
+    \       },
+    \       'mccabe': {
+    \         'enabled': 0,
+    \       },
+    \       'pylint': {
+    \         'enabled': 0,
+    \       },
+    \       'pyflakes': {
+    \         'enabled': 0,
+    \       },
+    \       'pycodestyle': {
+    \         'enabled': 0,
+    \       },
+    \       'pydocstyle': {
+    \         'enabled': 0,
+    \       },
+    \       'preload': {
+    \         'enabled': 0,
+    \       },
+    \       'rope_completion': {
+    \         'enabled': 0,
+    \       },
+    \       'yapf': {
+    \         'enabled': 0,
+    \       },
+    \     }
+    \   }
+    \ }
     \ }]
 autocmd User LspSetup call LspAddServer(lspServers)
 
