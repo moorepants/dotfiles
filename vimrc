@@ -206,7 +206,8 @@ let g:pymode_lint_write = 1
 let g:pymode_lint_unmodifed = 1
 " flake8: Missing whitespace around operator (E225)
 " flake8: Missing whitespace around arithmetic operator (E226)
-let g:pymode_lint_ignore = ["E225", "E226"]
+" flake8: block comment should start with '# ' (E265)
+let g:pymode_lint_ignore = ["E225", "E226", "E265"]
 "
 " Disable virtualenv support
 let g:pymode_virtualenv = 0
