@@ -115,7 +115,7 @@ let g:vimcomplete_tab_enable = 1
 " configuration below.
 " TODO : configure pylsp to only use completion (for now):
 " https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
-let lspOpts = #{autoHighlightDiags: v:true}
+let lspOpts = #{autoHighlightDiags: v:true, noNewlineInCompletion: v:true}
 autocmd User LspSetup call LspOptionsSet(lspOpts)
 
 " the path to this may not be the same on all my computers, pylsp can be
