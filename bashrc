@@ -140,7 +140,7 @@ UBUNTUVER=$(echo $(lsb_release -rs) | bc -l)
 if [[ $UBUNTUVER < 20 ]]; then
   [ -e /usr/lib/go2/go2.sh ] && source /usr/lib/go2/go2.sh
 else
-  [ -e /home/moorepants/miniconda/lib/go2/go2.sh ] && source /home/moorepants/miniconda/lib/go2/go2.sh
+  [ -e /home/moorepants/miniforge/lib/go2/go2.sh ] && source /home/moorepants/miniforge/lib/go2/go2.sh
 fi
 #alias cd='go2-cd' # caches all directorys you change to with cd
 
@@ -151,6 +151,8 @@ elif [ -d $HOME/miniconda3 ]; then
   CONDAPATH=$HOME/miniconda3
 elif [ -d $HOME/anaconda ]; then
   CONDAPATH=$HOME/anaconda
+elif [ -d $HOME/miniforge ]; then
+  CONDAPATH=$HOME/miniforge
 fi
 export PATH="$CONDAPATH/bin:$PATH"
 alias act='source activate'
