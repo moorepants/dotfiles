@@ -184,6 +184,8 @@ map <F3> :NERDTreeToggle<CR>
 " cd .vim/bundle/python-mode/pymode/submodules
 " git clone git@github.com:pypa/setuptools.git
 " ln -s ../../submodules/setuptools/pkg_resources/ pkg_resources"
+" Alternatively, just edit
+" python-mode/submodules/pylama/pylama/lint/__init__.py with the changes here https://github.com/klen/pylama/pull/254/files
 
 let g:pymode = 1 " turn pymode on and off
 " rope is a code completion library that will conflict with jedi-vim or other
