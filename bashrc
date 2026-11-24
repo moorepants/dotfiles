@@ -139,7 +139,9 @@ function go2-cd() {
 UBUNTUVER=$(echo $(lsb_release -rs) | bc -l)
 if [[ $UBUNTUVER < 20 ]]; then
   [ -e /usr/lib/go2/go2.sh ] && source /usr/lib/go2/go2.sh
-else
+elif [ -d $HOME/miniconda ]; then
+  [ -e /home/moorepants/miniconda/lib/go2/go2.sh ] && source /home/moorepants/miniconda/lib/go2/go2.sh
+elif [ -d $HOME/miniforge ]; then
   [ -e /home/moorepants/miniforge/lib/go2/go2.sh ] && source /home/moorepants/miniforge/lib/go2/go2.sh
 fi
 #alias cd='go2-cd' # caches all directorys you change to with cd
