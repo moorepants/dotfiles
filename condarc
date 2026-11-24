@@ -15,4 +15,3 @@ conda-build:
   root-dir: /tmp/conda-builds
 ssl_verify: true
 path_conflict: warn
-solver: libmamba
